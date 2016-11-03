@@ -11,7 +11,7 @@
             if($input.length == 0){
                 $input = $container.find('input[type="text"]').first();
             }
-            
+
             $input.on('input', function(){
                 inputChanged($container);
             });
@@ -21,7 +21,7 @@
             });
 
             var autocomplete = new google.maps.places.Autocomplete($input[0], options);
-            
+
             google.maps.event.addListener(autocomplete, 'place_changed', function(){
                 var place = autocomplete.getPlace();
                 var data = {};
@@ -61,6 +61,9 @@
                     }
                    else if(place.address_components[i].types[0] == 'postal_code'){
                         data['zip_code'] = place.address_components[i].long_name;
+                    }
+                    else if(place.address_components[i].types[0] == 'sublocality_level_1'){
+                        data['suburb'] = place.address_components[i].long_name;
                     }
                 }
 

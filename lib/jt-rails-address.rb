@@ -69,6 +69,8 @@ module JT::Rails::Address
 					data['city'] = address_component['long_name']
 				elsif address_component['types'][0] == 'postal_code'
 					data['zip_code'] = address_component['long_name']
+				elsif address_component['types'][0] == 'sublocality_level_1'
+					data['suburb'] = address_component['long_name']
 				end
 
 			end

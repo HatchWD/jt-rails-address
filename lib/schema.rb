@@ -5,6 +5,7 @@ module JT::Rails::Address::Schema
 		street_number: :string,
 		street_name: :string,
 		street: :string,
+		suburb: string,
 		city: :string,
 		zip_code: :string,
 		department: :string,
